@@ -1,0 +1,6 @@
+# Ignore all files and subdirectories in the .terraform/ folder
+.terraform/
+.terraform\providers\registry.terraform.io\hashicorp\aws\5.26.0\windows_386\terraform-provider-aws_v5.26.0_x5.exe
+# Ignore all Terraform state files
+*.tfstate
+*.tfstate.*
