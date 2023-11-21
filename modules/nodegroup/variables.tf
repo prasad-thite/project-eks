@@ -8,9 +8,9 @@ variable "node_group_name" {
   type        = string
 }
 
-variable "private_subnet_id" {
+variable "private_subnet_k8s_ids" {
   description = "ID of the private subnet for EKS worker nodes"
-  type        = string
+  type        = list(string)
 }
 
 variable "node_group_min_size" {

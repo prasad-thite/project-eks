@@ -3,6 +3,11 @@ variable "aws_region" {
   type        = string
 }
 
+variable "vpc_name" {
+    type = string
+    description = "Name tag for the VPC"
+  
+}
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
   type        = string
@@ -10,14 +15,29 @@ variable "vpc_cidr" {
 
 variable "public_subnet_cidr" {
   description = "CIDR block for the public subnet"
-  type        = string
+  type        = list(string)
 }
 
-variable "private_subnet_cidr" {
-  description = "CIDR block for the private subnet"
-  type        = string
+variable "private_subnet_k8s_cidr" {
+    type = list(string)
+    description = "CIDR block for the private subnet k8s"
+  
 }
 
+# variable "private_subnet_k8s_ids" {
+#     type = list(string)
+#     description = "Private subnet k8s id"
+# }
+
+variable "private_subnet_db_cidr" {
+  description = "CIDR block for the private subnet db"
+  type        = list(string)
+}
+
+variable "availability_zones" {
+  type        = list(string)
+  description = "List of availability zones for subnets"
+}
 variable "eks_cluster_name" {
   description = "Name of the EKS cluster"
   type        = string
