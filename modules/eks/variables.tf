@@ -8,6 +8,11 @@ variable "eks_cluster_role_arn" {
   type        = string
 }
 
+# variable "role_arn" {
+#   description = "Cluster Role arn"
+#   type = string
+  
+# }
 variable "private_subnet_k8s_ids" {
   description = "ID of the private subnet for EKS worker nodes"
   type        = list(string)

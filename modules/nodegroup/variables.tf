@@ -8,6 +8,11 @@ variable "node_group_name" {
   type        = string
 }
 
+variable "instance_types" {
+  type = list(string)
+  description = "Instance type for nodegroup" 
+}
+
 variable "private_subnet_k8s_ids" {
   description = "ID of the private subnet for EKS worker nodes"
   type        = list(string)

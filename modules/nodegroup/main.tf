@@ -3,6 +3,7 @@ resource "aws_eks_node_group" "my_node_group" {
   node_group_name = var.node_group_name
   node_role_arn = var.node_role_arn 
   subnet_ids = var.private_subnet_k8s_ids
+  instance_types = var.instance_types
   scaling_config {
     min_size = var.node_group_min_size
     max_size = var.node_group_max_size

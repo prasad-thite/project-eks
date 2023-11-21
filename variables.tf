@@ -3,6 +3,29 @@ variable "aws_region" {
   type        = string
 }
 
+variable "eks_cluster_role_arn" {
+  type = string
+  description = "Cluster Role arn"
+}
+
+# variable "role_arn" {
+#   type = string
+#   description = "Cluster Role arn"
+# }
+variable "cluster_policy_arn" {
+  type = string
+  description = "Cluster policy arn"  
+}
+
+variable "node_group_policy_arn" {
+  type = string
+  description = "Nodegroup policy arn"
+}
+
+variable "node_group_cni_policy_arn" {
+  type = string
+  description = "Nodegroup CNI policy arn"
+}
 variable "vpc_name" {
     type = string
     description = "Name tag for the VPC"
@@ -48,16 +71,17 @@ variable "eks_cluster_role_name" {
     type        = string
 }
 
-variable "eks_cluster_role_arn" {
-  description = "ARN of the IAM role for EKS cluster"
-  type        = string
-}
 
 variable "node_group_name" {
   description = "Name of the EKS node group"
   type        = string
 }
 
+variable "instance_types" {
+  type = list(string)
+  description = "Instance type fot Nodegroup"
+  
+}
 variable "node_group_min_size" {
   description = "Minimum size of the EKS node group"
   type        = number
