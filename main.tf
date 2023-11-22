@@ -22,6 +22,7 @@ module "eks" {
 
 module "nodegroup" {
   source                  = "./modules/nodegroup"
+  depends_on = [ module.eks.my_eks_cluster ]
   eks_cluster_name        = var.eks_cluster_name
   node_group_name         = var.node_group_name
   instance_types          = var.instance_types
@@ -29,16 +30,16 @@ module "nodegroup" {
   node_group_min_size     = var.node_group_min_size
   node_group_max_size     = var.node_group_max_size
   node_group_desired_size = var.node_group_desired_size
-  node_role_arn           = var.eks_nodegroup_role_name
+  # node_role_arn           = var.eks_nodegroup_role_name
   ec2_ssh_key             = var.ec2_ssh_key
 }
 
-module "iam" {
-  source                   = "./modules/iam"
-  eks_cluster_role_name    = var.eks_cluster_role_name
-  cluster_policy_arn       = var.cluster_policy_arn
-  eks_nodegroup_role_name  = var.eks_nodegroup_role_name
-  node_group_policy_arn    = var.node_group_policy_arn
-  node_group_cni_policy_arn     = var.node_group_cni_policy_arn
-}
+# module "iam" {
+#   source                   = "./modules/iam"
+#   eks_cluster_role_name    = var.eks_cluster_role_name
+#   cluster_policy_arn       = var.cluster_policy_arn
+#   eks_nodegroup_role_name  = var.eks_nodegroup_role_name
+#   node_group_policy_arn    = var.node_group_policy_arn
+#   node_group_cni_policy_arn     = var.node_group_cni_policy_arn
+# }
 

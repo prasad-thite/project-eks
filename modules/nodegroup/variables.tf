@@ -35,6 +35,8 @@ variable "node_group_desired_size" {
 
 variable "node_role_arn" {
   description = "eks-nodegroup-role"
+  default = "arn:aws:iam::451382472143:role/nodegroup_role"
+  type = string
 }
 variable "ec2_ssh_key" {
   description = "Name of the SSH key pair for EC2 instances"

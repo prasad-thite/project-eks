@@ -3,29 +3,50 @@ variable "aws_region" {
   type        = string
 }
 
+variable "eks_cluster_name" {
+  description = "Name of the EKS cluster"
+  type        = string
+}
+
+variable "eks_cluster_role_name" {
+    description = "Name of the IAM role for EKS Cluster"
+    type        = string
+}
+
 variable "eks_cluster_role_arn" {
   type = string
   description = "Cluster Role arn"
 }
 
-# variable "role_arn" {
+variable "node_group_name" {
+  description = "Name of the EKS node group"
+  type        = string
+}
+
+variable "eks_nodegroup_role_name" {
+  description = "Name of the IAM role for EKS node group"
+  type        = string
+}
+
+variable "eks_nodegroup_role_arn" {
+  description = "nodegroup role arn"
+  type = string
+}
+
+# variable "cluster_policy_arn" {
 #   type = string
-#   description = "Cluster Role arn"
+#   description = "Cluster policy arn"  
 # }
-variable "cluster_policy_arn" {
-  type = string
-  description = "Cluster policy arn"  
-}
 
-variable "node_group_policy_arn" {
-  type = string
-  description = "Nodegroup policy arn"
-}
+# variable "node_group_policy_arn" {
+#   type = string
+#   description = "Nodegroup policy arn"
+# }
 
-variable "node_group_cni_policy_arn" {
-  type = string
-  description = "Nodegroup CNI policy arn"
-}
+# variable "node_group_cni_policy_arn" {
+#   type = string
+#   description = "Nodegroup CNI policy arn"
+# }
 variable "vpc_name" {
     type = string
     description = "Name tag for the VPC"
@@ -61,21 +82,6 @@ variable "availability_zones" {
   type        = list(string)
   description = "List of availability zones for subnets"
 }
-variable "eks_cluster_name" {
-  description = "Name of the EKS cluster"
-  type        = string
-}
-
-variable "eks_cluster_role_name" {
-    description = "Name of the IAM role for EKS Cluster"
-    type        = string
-}
-
-
-variable "node_group_name" {
-  description = "Name of the EKS node group"
-  type        = string
-}
 
 variable "instance_types" {
   type = list(string)
@@ -102,7 +108,3 @@ variable "ec2_ssh_key" {
   type        = string
 }
 
-variable "eks_nodegroup_role_name" {
-  description = "Name of the IAM role for EKS node group"
-  type        = string
-}
